@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Overview index{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('style/style.css') }}">
+{% endblock %}
+{% block body %}
+    <a href="{{ path('app_overview_new')}}">Add</a>
+    <div class="header">
+        <a href="Home.php"><button class="back_btn">Home</button></a>
+    </div>
+    <div class="container">
+        <h1 class="title">Orders Overview</h1>
+        <div class="summary">
+            <div class="rectangle total-orders">
+                <img src="{{ asset('images/panier.png') }}" alt="">
+                <h3>Total Orders</h3>
+                <p>{{ orderCount }}</p>
+                <div class="line"></div>
+            </div>
+            <div class="rectangle total-revenue">
+                <img src="{{ asset('images/dollar.png') }}" alt="">
+                <h3>Total Revenue</h3>
+                <p>${{ totala }}</p>
+                <div class="line"></div>
+            </div>
+            <div class="rectangle total-paid">
+                <img src="{{ asset('images/check.png') }}" alt="">
+                <h3>Total Paid</h3>
+                <p>${{ totalPaid }}</p>
+                <div class="line"></div>
+            </div>
+            <div class="rectangle total-due">
+                <img src="{{ asset('images/due.png') }}" alt="">
+                <h3>Total Due</h3>
+                <p>${{ due }}</p>
+                <div class="line"></div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Order Code</th>
+                            
+                            <th>Date of Order</th>
+                            <th>Client Name</th>
+                            <th>Total Amount</th>
+                            <th>Grand Amount</th>
+                            <th>Due</th>
+                            <th>Payment Method</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for overview in overviews %}
+                        <tr>
+                            <td>{{ overview.id }}</td>
+                            <td>{{ overview.code }}</td>
+                            <td>{{ overview.date ? overview.date|date('Y-m-d') : '' }}</td>
+                            <td>{{ overview.name }}</td>
+                            <td>{{ overview.total }}</td>
+                            <td>{{ overview.grand }}</td>
+                            <td>{{ overview.due }}</td>
+                            <td>{{ overview.method }}</td>
+                            <td>
+                                <a href="{{ path('app_overview_show', {'id': overview.id}) }}">show</a>
+                                <a href="{{ path('app_overview_edit', {'id': overview.id}) }}">edit</a>
+                            </td>
+                        </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="9">no records found</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{{ path('app_overview_new') }}">Create new</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

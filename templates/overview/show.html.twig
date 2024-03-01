@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Overview{% endblock %}
+
+{% block body %}
+    
+    <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
+    <tables>
+        
+        <div id="layoutAuthentication" style=" background: rgb(76,0,0);
+        background: radial-gradient(circle, rgba(76,0,0,1) 0%, rgba(148,187,233,1) 100%); ">
+        <div id="layoutAuthentication_content">
+                <main>
+                    
+                    <div class="container  text-center">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <h1 style="text-align:center;color:white;padding-top:4vh;">Overview</h1>
+                                    <div class="card  border-0 rounded-lg mt-5" style="box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;">
+                                        <div class="card-header">
+                                            <h3 class="text-center font-weight-light my-4">Create Account</h3>
+                                        </div>
+    <div class="card-body ">
+        
+        
+        <div class="form-floating mb-3">
+            <th>Id</th>
+            <td>{{ overview.id }}</td>
+        </div>
+    
+        <div class="form-floating mb-3">
+            <th>Code</th>
+            <td>{{ overview.code }}</td>
+        </div>
+
+        <div class="form-floating mb-3">
+            <th>Date</th>
+            <td>{{ overview.date|date('Y-m-d') }}</td>
+        </div>
+
+        <div class="form-floating mb-3">
+            <th>Name</th>
+            <td>{{ overview.name }}</td>
+        </div>
+
+        <div class="form-floating mb-3">
+            <th>Total Amount</th>
+            <td>{{ overview.total }}</td>
+        </div>
+
+        <div class="form-floating mb-3">
+            <th>Grand Amount</th>
+            <td>{{ overview.grand }}</td>
+        </div>
+        
+        <div class="form-floating mb-3">
+            <th>Due Amount</th>
+            <td>{{ overview.due }}</td>
+        </div>
+        
+    
+        <a href="{{ path('app_home_eployee') }}" class="btn btn-outline-dark btn-sm fw-bold">Back to list</a>
+
+        <a href="{{ path('app_overview_edit', {'id': overview.id}) }}" class="btn btn-outline-dark btn-sm fw-bold">Edit</a>
+        
+    </div>
+
+
+
+    {{ include('overview/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Overview{% endblock %}
+
+{% block body %}
+    <h1>Create new Overview</h1>
+
+    {{ include('overview/_form.html.twig') }}
+
+    <a href="{{ path('app_overview_index') }}">back to list</a>
+{% endblock %}

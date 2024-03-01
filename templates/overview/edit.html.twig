@@ -1,0 +1,64 @@
+<link href="{{asset('css/styles.css')}}" rel="stylesheet" />
+    <script src="{{asset('https://use.fontawesome.com/releases/v6.3.0/js/all.js')}}" crossorigin="anonymous"></script>
+
+<table>
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication" style=" background: rgb(76,0,0);
+        background: radial-gradient(circle, rgba(76,0,0,1) 0%, rgba(148,187,233,1) 100%); ">
+            <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                                <div class="card  border-0 rounded-lg mt-5"style="box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;">
+                                    <div class="card-header">
+                                        <h3 class="text-center font-weight-light my-4">Create Account</h3>
+                                    </div>
+<div class="card-body">
+    
+    {{ form_start(form) }}
+    <div class="form-floating mb-3">
+        {{ form_widget(form.code, {'attr': {'class': 'form-control', 'id': 'inputcode', 'placeholder': 'Enter your code'} }) }}
+        {{ form_label(form.code) }}
+    </div>
+
+    <div class="form-floating mb-3">
+        {{ form_widget(form.date, {'attr': {'class': 'form-control', 'id': 'inputdate', 'type': 'text','placeholder': 'Enter your last date'} }) }}
+        {{ form_label(form.date) }}
+    </div>
+
+    <div class="form-floating mb-3">
+        {{ form_widget(form.name, {'attr': {'class': 'form-control', 'id': 'inputname', 'type': 'text','placeholder': 'Enter your name'} }) }}
+        {{ form_label(form.name) }}
+    </div>
+
+
+    <div class="form-floating mb-3">
+        {{ form_widget(form.total, {'attr': {'class': 'form-control', 'id': 'inputtotal'} }) }}
+        {{ form_label(form.total) }}
+    </div>
+
+    <div class="form-floating mb-3">
+        {{ form_widget(form.grand, {'attr': {'class': 'form-control', 'id': 'inputgrand', 'type': 'text', 'placeholder': 'Enter your grand'} }) }}
+        {{ form_label(form.grand) }}
+    </div>
+
+    <div class="form-floating mb-3">
+        {{ form_widget(form.due, {'attr': {'class': 'form-control', 'id': 'inputdue', 'type': 'text','placeholder': 'Enter the due'} }) }}
+        {{ form_label(form.due) }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form_widget(form.method, {'attr': {'class': 'form-control', 'id': 'inputmethod', 'type': 'text','placeholder': 'Enter the due'} }) }}
+        {{ form_label(form.method) }}
+    </div>
+
+    
+    <div class="mt-4 mb-0">
+        <div class="form-group">
+            {{ form_label(form.save) }}
+            {{ form_widget(form.save) }}
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>
+</table>
